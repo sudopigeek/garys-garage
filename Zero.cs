@@ -2,12 +2,15 @@ using System;
 
 namespace Garage
 {
-    public class Zero : Vehicle
+    public class Zero : IElectricVehicle
     {
         public double BatteryKWh { get; set; }
+        public string MainColor { get; set; }
+        public int MaximumOccupancy { get; set; }
+        public int CurrentChargePercentage { get; set; }
         public void ChargeBattery()
         {
-            // method definition omitted
+            CurrentChargePercentage = 100;
         }
         public Zero()
         {
@@ -15,15 +18,15 @@ namespace Garage
             MaximumOccupancy = 1;
             BatteryKWh = 140;
         }
-        public override void Drive()
+        public void Drive()
         {
             Console.WriteLine($"the {MainColor} Zero zips by you. Yeeeeeeoooooowwwww!");
         }
-        public override void Turn(string direction)
+        public void Turn(string direction)
         {
             Console.WriteLine($"The {MainColor} Zero turns to the {direction}.");
         }
-        public override void Stop()
+        public void Stop()
         {
             Console.WriteLine($"The {MainColor} Zero glides to a stop.\n");
         }

@@ -2,12 +2,15 @@ using System;
 
 namespace Garage
 {
-    public class Ram : Vehicle
+    public class Ram : IGasVehicle
     {
         public double FuelCapacity { get; set; }
+        public string MainColor { get; set; }
+        public int MaximumOccupancy { get; set; }
+        public int CurrentTankPercentage { get; set; }
         public void RefuelTank()
         {
-            // method definition omitted
+            CurrentTankPercentage = 100;
         }
         public Ram()
         {
@@ -15,15 +18,15 @@ namespace Garage
             MaximumOccupancy = 5;
             FuelCapacity = 50;
         }
-        public override void Drive()
+        public void Drive()
         {
             Console.WriteLine($"The {MainColor} Ram growls by you. Rrrrrrrummmmmmmbbbbble!");
         }
-        public override void Turn(string direction)
+        public void Turn(string direction)
         {
             Console.WriteLine($"The {MainColor} Ram turns to the {direction}");
         }
-        public override void Stop()
+        public void Stop()
         {
             Console.WriteLine($"The {MainColor} Ram rumbles to a stop.\n");
         }
